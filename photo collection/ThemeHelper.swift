@@ -27,14 +27,8 @@ class ThemeHelper {
     }
     
     var themePreference : String? {
-        let userDefaults = UserDefaults.standard
-        userDefaults.string(forKey: .themePreferenceKey)
-        return String
+        return UserDefaults.standard.string(forKey: .themePreferenceKey)
     }
-/*@IBAction func plutoSwitchToggled(_ sender: UISwitch) {
- let userDefaults = UserDefaults.standard
- userDefaults.set(sender.isOn, forKey: .shouldShowPlutoKey)
- }*/
 }
 
 extension String {
