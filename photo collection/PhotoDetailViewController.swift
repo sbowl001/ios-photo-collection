@@ -13,6 +13,7 @@ class PhotoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -33,12 +34,12 @@ class PhotoDetailViewController: UIViewController {
         guard let themePreference = themeHelper?.themePreference else {return}
         if (themePreference == "Dark" ) {
             view.backgroundColor = .darkGray
-        } else {
-            view.backgroundColor = .lightGray
+        } else if (themePreference == "Light") {
+            view.backgroundColor = .blue
         }
     }
     
-    func updateViews(){
+    private func updateViews(){
         setTheme()
         guard let photo = photo else {return}
         

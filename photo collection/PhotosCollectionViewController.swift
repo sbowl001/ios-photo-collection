@@ -15,17 +15,20 @@ class PhotosCollectionViewController: UICollectionViewController {
     let photoController = PhotoController()
     let themeHelper = ThemeHelper()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView?.reloadData()
+        setTheme()
     }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//
+//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//
+//        // Do any additional setup after loading the view.
+//    }
 
  
    
@@ -58,8 +61,8 @@ class PhotosCollectionViewController: UICollectionViewController {
 //        - Based on the value, change the collection view's background color depending on whether the theme is dark or the other color you selected.
         if (themePreference == "Dark" ) {
             collectionView?.backgroundColor = .darkGray
-        } else {
-            collectionView?.backgroundColor = .lightGray
+        } else if (themePreference == "Light") {
+            collectionView?.backgroundColor = .blue
         }
         
     }

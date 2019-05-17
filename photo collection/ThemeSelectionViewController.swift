@@ -10,11 +10,11 @@ import UIKit
 
 class ThemeSelectionViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        // Do any additional setup after loading the view.
+//    }
     var themeHelper: ThemeHelper?
     
     

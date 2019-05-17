@@ -10,11 +10,11 @@ import Foundation
 
 class ThemeHelper {
     
-    init(){
-        if themePreference == nil {
-            setThemePreferenceToDark()
-        }
-    }
+//    init(){
+//        if themePreference == nil {
+//            setThemePreferenceToDark()
+//        }
+//    }
     
     func setThemePreferenceToDark() {
         let userDefaults = UserDefaults.standard
