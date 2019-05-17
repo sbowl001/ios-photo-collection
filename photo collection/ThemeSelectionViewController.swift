@@ -19,10 +19,15 @@ class ThemeSelectionViewController: UIViewController {
     
     
     @IBAction func selectDarkTheme(_ sender: Any) {
+        themeHelper?.setThemePreferenceToDark()
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func selectLightTheme(_ sender: Any) {
+        themeHelper?.setThemePreferenceToLight()
+        dismiss(animated: true, completion: nil)
     }
-    
+   
+
 
 }
