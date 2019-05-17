@@ -17,6 +17,7 @@
 		A3421599228EE84D0097E80D /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3421598228EE84D0097E80D /* PhotosCollectionViewController.swift */; };
 		A342159B228EED4D0097E80D /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342159A228EED4D0097E80D /* PhotosCollectionViewCell.swift */; };
 		A342159D228EEE070097E80D /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342159C228EEE070097E80D /* PhotoDetailViewController.swift */; };
+		A342159F228EF28D0097E80D /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342159E228EF28D0097E80D /* ThemeSelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A3421598228EE84D0097E80D /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		A342159A228EED4D0097E80D /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		A342159C228EEE070097E80D /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		A342159E228EF28D0097E80D /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			children = (
 				A3421580228ED9660097E80D /* AppDelegate.swift */,
 				A3421584228ED9660097E80D /* Main.storyboard */,
+				A342159E228EF28D0097E80D /* ThemeSelectionViewController.swift */,
 				A342159C228EEE070097E80D /* PhotoDetailViewController.swift */,
 				A3421598228EE84D0097E80D /* PhotosCollectionViewController.swift */,
 				A3421592228EDC000097E80D /* Photo.swift */,
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3421593228EDC000097E80D /* Photo.swift in Sources */,
+				A342159F228EF28D0097E80D /* ThemeSelectionViewController.swift in Sources */,
 				A3421595228EDCD10097E80D /* PhotoController.swift in Sources */,
 				A3421597228EE1000097E80D /* ThemeHelper.swift in Sources */,
 				A342159D228EEE070097E80D /* PhotoDetailViewController.swift in Sources */,

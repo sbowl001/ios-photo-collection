@@ -80,7 +80,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="Efz-jT-iJx">
-                        <barButtonItem key="leftBarButtonItem" title="Select Theme" id="3zb-jr-qeU"/>
+                        <barButtonItem key="leftBarButtonItem" title="Select Theme" id="3zb-jr-qeU">
+                            <connections>
+                                <segue destination="Zf6-1W-tTc" kind="presentation" identifier="selectTheme" id="sOo-9d-wGd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add " id="Ywe-la-fKG">
                             <connections>
                                 <segue destination="Xg3-cK-VDg" kind="show" identifier="addPhoto" id="8KB-Jh-gzn"/>
@@ -138,6 +142,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FV2-JG-zxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1660" y="170"/>
+        </scene>
+        <!--Theme Selection View Controller-->
+        <scene sceneID="phm-ek-dgo">
+            <objects>
+                <viewController id="Zf6-1W-tTc" customClass="ThemeSelectionViewController" customModule="photo_collection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f65-Nh-xp9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please select a theme " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3s-c2-gTG">
+                                <rect key="frame" x="56" y="88" width="283" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEZ-zK-nBI">
+                                <rect key="frame" x="63" y="178" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Dark"/>
+                                <connections>
+                                    <action selector="selectDarkTheme:" destination="Zf6-1W-tTc" eventType="touchUpInside" id="38t-oj-bhN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScU-O1-SPE">
+                                <rect key="frame" x="299" y="178" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Light"/>
+                                <connections>
+                                    <action selector="selectLightTheme:" destination="Zf6-1W-tTc" eventType="touchUpInside" id="izy-5p-5M7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="26p-sS-DCQ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zDI-NL-exJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2309.5999999999999" y="171.36431784107947"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vxr-1l-Ebd">
