@@ -32,9 +32,9 @@ class PhotoDetailViewController: UIViewController {
     
     func setTheme() {
         guard let themePreference = themeHelper?.themePreference else {return}
-        if (themePreference == "Dark" ) {
+        if (themePreference == .dark) {
             view.backgroundColor = .darkGray
-        } else if (themePreference == "Light") {
+        } else if (themePreference == .light) {
             view.backgroundColor = .blue
         }
     }

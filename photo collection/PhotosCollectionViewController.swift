@@ -60,9 +60,9 @@ class PhotosCollectionViewController: UICollectionViewController {
         guard let themePreference = themeHelper.themePreference else {return}
 //        - Based on the value, change the collection view's background color depending on whether the theme is dark or the other color you selected.
         if (themePreference == "Dark" ) {
-            collectionView?.backgroundColor = .darkGray
+            collectionView.backgroundColor = UIColor.darkGray
         } else if (themePreference == "Light") {
-            collectionView?.backgroundColor = .blue
+            collectionView.backgroundColor = UIColor.blue
         }
         
     }

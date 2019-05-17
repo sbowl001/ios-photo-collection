@@ -10,29 +10,31 @@ import Foundation
 
 class ThemeHelper {
     
-//    init(){
-//        if themePreference == nil {
-//            setThemePreferenceToDark()
-//        }
-//    }
+    var themePreferenceKey : String = "ThemePreference"
+    
+    init(){
+        if themePreference == nil {
+            setThemePreferenceToLight()
+        }
+    }
     
     func setThemePreferenceToDark() {
         let userDefaults = UserDefaults.standard
-        userDefaults.set("Dark", forKey: .themePreferenceKey)
+        userDefaults.set(String.dark, forKey: themePreferenceKey)
     }
     func setThemePreferenceToLight() {
         let userDefaults = UserDefaults.standard
-        userDefaults.set("Light", forKey: .themePreferenceKey)
+        userDefaults.set(String.light, forKey: themePreferenceKey)
         
     }
     
     var themePreference : String? {
-        return UserDefaults.standard.string(forKey: .themePreferenceKey)
+        return UserDefaults.standard.string(forKey: themePreferenceKey)
     }
 }
 
 extension String {
-    static var themePreferenceKey = ""
-
+    static var dark = "Dark"
+    static var light = "Light"
 }
 
