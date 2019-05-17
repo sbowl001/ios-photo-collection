@@ -163,7 +163,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Dark"/>
                                 <connections>
-                                    <action selector="selectDarkTheme:" destination="Zf6-1W-tTc" eventType="touchUpInside" id="38t-oj-bhN"/>
+                                    <action selector="selectDarkTheme:" destination="Zf6-1W-tTc" eventType="touchUpInside" id="ay4-Jh-IaB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScU-O1-SPE">
@@ -171,7 +171,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Light"/>
                                 <connections>
-                                    <action selector="selectLightTheme:" destination="Zf6-1W-tTc" eventType="touchUpInside" id="izy-5p-5M7"/>
+                                    <action selector="selectLightTheme:" destination="Zf6-1W-tTc" eventType="touchUpInside" id="sYu-0q-gUv"/>
                                 </connections>
                             </button>
                         </subviews>

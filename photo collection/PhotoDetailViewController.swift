@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoDetailViewController: UIViewController {
+class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class PhotoDetailViewController: UIViewController {
         if (themePreference == .dark) {
             view.backgroundColor = .darkGray
         } else if (themePreference == .light) {
-            view.backgroundColor = .blue
+            view.backgroundColor = .lightGray
         }
     }
     

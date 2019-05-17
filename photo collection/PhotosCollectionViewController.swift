@@ -59,10 +59,10 @@ class PhotosCollectionViewController: UICollectionViewController {
         //          - Get the current `themePreference` from the `themeHelper`. Make sure that it has a value, or return out of the function.
         guard let themePreference = themeHelper.themePreference else {return}
 //        - Based on the value, change the collection view's background color depending on whether the theme is dark or the other color you selected.
-        if (themePreference == "Dark" ) {
+        if (themePreference == .dark ) {
             collectionView.backgroundColor = UIColor.darkGray
-        } else if (themePreference == "Light") {
-            collectionView.backgroundColor = UIColor.blue
+        } else if (themePreference == .light) {
+            collectionView.backgroundColor = UIColor.lightGray
         }
         
     }
@@ -70,8 +70,6 @@ class PhotosCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "cellToView") {
             
-        }
-        
         guard let indexPaths =
             collectionView?.indexPathsForSelectedItems,
             let destinationVC = segue.destination as? PhotoDetailViewController,
@@ -81,7 +79,8 @@ class PhotosCollectionViewController: UICollectionViewController {
         destinationVC.photo = photo
         destinationVC.photoController = photoController
         destinationVC.themeHelper = themeHelper
-        
+        }
+
    // ****NOTE(*******
         // why do we have to use .first? how is this different for selectedROw? explain please
         
@@ -95,7 +94,8 @@ class PhotosCollectionViewController: UICollectionViewController {
             destinationVC.themeHelper = themeHelper
             
             
-        } else if (segue.identifier == "selectTheme") {
+        }
+        else if (segue.identifier == "selectTheme") {
             guard let destinationVC = segue.destination as? ThemeSelectionViewController else {return}
             destinationVC.themeHelper = themeHelper
             
@@ -113,7 +113,48 @@ class PhotosCollectionViewController: UICollectionViewController {
         return true
     }
     */
-
+   /*  @IBAction func addPhoto(_ sender: Any) {
+        let preservedStatus = PHPhotoLibrary.authorizationStatus()
+        switch preservedStatus {
+        case .authorized:
+            self.presentImagePickerController()
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({ (newStatus) in
+                if newStatus == .authorized {
+                    self.presentImagePickerController()
+                } else {
+                    return
+                }
+            })
+        default:
+            return
+        }
+        
+        
+    }
+    
+    func presentImagePickerController() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.delegate = self
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            return
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let image = info[.originalImage] as? UIImage else { return }
+        
+        photoImageView.image = image
+        
+    }
+    
+    You'll need to add a row to Info.plist with a key of `Privacy - Photo Library Usage Description` and any string value(usually the description what it's doing in the app)
+    Conform the class to `UIImagePickerControllerDelegate` and `UINavigationControllerDelegate`. Also `import Photos` */
   
 
 }

@@ -14,7 +14,7 @@ class ThemeHelper {
     
     init(){
         if themePreference == nil {
-            setThemePreferenceToLight()
+            setThemePreferenceToDark()
         }
     }
     
