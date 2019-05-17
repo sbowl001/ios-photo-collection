@@ -8,10 +8,13 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "PhotosCell"
 
 class PhotosCollectionViewController: UICollectionViewController {
 
+    let photoController = PhotoController()
+    let themeHelper = ThemeHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,36 +27,80 @@ class PhotosCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+ 
+   
     // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return photoController.photos.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? PhotosCollectionViewCell else {return UICollectionViewCell()}
+        
+        let photo = self.photoController.photos[indexPath.row]
+        cell.titleLabel.text = photo.title
+        cell.photosView.image = UIImage(data: photo.imageData)
     
-        // Configure the cell
+   
     
         return cell
     }
+
+    
+    
+    func setTheme() {
+        
+        //          - Get the current `themePreference` from the `themeHelper`. Make sure that it has a value, or return out of the function.
+        guard let themePreference = themeHelper.themePreference else {return}
+//        - Based on the value, change the collection view's background color depending on whether the theme is dark or the other color you selected.
+        if (themePreference == "Dark" ) {
+            collectionView?.backgroundColor = .darkGray
+        } else {
+            collectionView?.backgroundColor = .lightGray
+        }
+        
+    }
+  
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "cellToView") {
+            
+        }
+        
+        guard let indexPaths =
+            collectionView?.indexPathsForSelectedItems,
+            let destinationVC = segue.destination as? PhotoDetailViewController,
+        let indexPath = indexPaths.first else {return}
+        
+        let photo = photoController.photos[indexPath.item]
+        destinationVC.photo = photo
+        destinationVC.photoController = photoController
+        destinationVC.themeHelper = themeHelper
+        
+   // ****NOTE(*******
+        // why do we have to use .first? how is this different for selectedROw? explain please
+        
+       
+//            - The segue from the cell should pass the `themeHelper`, `photoController`, and the `photo`.
+        
+        if(segue.identifier == "addPhoto") {
+            //        - The segue from the "Add" bar button item should pass the the `themeHelper` and the `photoController`.
+            guard let destinationVC = segue.destination as? PhotoDetailViewController else {return}
+            destinationVC.photoController = photoController
+            destinationVC.themeHelper = themeHelper
+            
+            
+        } else if (segue.identifier == "selectTheme") {
+            guard let destinationVC = segue.destination as? ThemeSelectionViewController else {return}
+            destinationVC.themeHelper = themeHelper
+            
+        }
+
+//        - The segue from the "Select Theme" bar button item should pass the `themeHelper`.
+    }
+    
 
     // MARK: UICollectionViewDelegate
 
@@ -64,26 +111,6 @@ class PhotosCollectionViewController: UICollectionViewController {
     }
     */
 
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
+  
 
 }

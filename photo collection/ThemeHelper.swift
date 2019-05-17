@@ -32,7 +32,7 @@ class ThemeHelper {
 }
 
 extension String {
-    static var themePreferenceKey = "themePreferenceKey"
+    static var themePreferenceKey = ""
 
 }
 

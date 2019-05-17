@@ -50,7 +50,6 @@
 		A3421574228ED9660097E80D = {
 			isa = PBXGroup;
 			children = (
-				A342159A228EED4D0097E80D /* PhotosCollectionViewCell.swift */,
 				A342157F228ED9660097E80D /* photo collection */,
 				A342157E228ED9660097E80D /* Products */,
 			);
@@ -68,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				A3421580228ED9660097E80D /* AppDelegate.swift */,
+				A342159A228EED4D0097E80D /* PhotosCollectionViewCell.swift */,
 				A3421584228ED9660097E80D /* Main.storyboard */,
 				A342159E228EF28D0097E80D /* ThemeSelectionViewController.swift */,
 				A342159C228EEE070097E80D /* PhotoDetailViewController.swift */,
