@@ -17,7 +17,7 @@ class PhotoController {
       photos.append(photo)
     }
     
-    func update(photo: Photo, with imageData: Data, title: String) {
+    func update(photo: Photo, imageData: Data, title: String) {
 //   Add an "Update" method that takes in `Photo`,`Data`, and `String` parameters.
  
         guard let index = photos.index(of: photo) else {return}

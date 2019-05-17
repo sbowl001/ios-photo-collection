@@ -49,11 +49,22 @@ class PhotoDetailViewController: UIViewController {
     }
     
     @IBAction func addPhoto(_ sender: Any) {
-//         4. The `addImage` action should present a `UIImagePickerController` that allows the user to select an image to add to the `Photo` object.
+        present(UIImagePickerController(), animated: true, completion: nil)
+//        present(UIImagePickerControllerDelegate(self))
+//         4. The `addImage` action codershould present a `UIImagePickerController` that allows the user to select an image to add to the `Photo` object.
     }
     
     @IBAction func savePhoto(_ sender: Any) {
-//        3. The "Save" bar button item's action should either update the `photo` if it has a value, or create a new instance of `photo` using the methods in the `photoController`. "Pop" the view controller afterwards.
+        guard let title = newTitleLabel.text,
+            let image = chooseImageView.image,
+            let imageData = image.pngData() else { return }
+        
+        if let photo = photo {
+            photoController?.update(photo: photo, imageData: imageData, title: title    )
+        } else {
+            photoController?.create(imageData: imageData, title: title)
+        }
+        navigationController?.popViewController(animated: true)
     }
    
    
