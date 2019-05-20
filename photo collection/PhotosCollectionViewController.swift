@@ -104,57 +104,7 @@ class PhotosCollectionViewController: UICollectionViewController {
 //        - The segue from the "Select Theme" bar button item should pass the `themeHelper`.
     }
     
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-   /*  @IBAction func addPhoto(_ sender: Any) {
-        let preservedStatus = PHPhotoLibrary.authorizationStatus()
-        switch preservedStatus {
-        case .authorized:
-            self.presentImagePickerController()
-        case .notDetermined:
-            PHPhotoLibrary.requestAuthorization({ (newStatus) in
-                if newStatus == .authorized {
-                    self.presentImagePickerController()
-                } else {
-                    return
-                }
-            })
-        default:
-            return
-        }
-        
-        
-    }
-    
-    func presentImagePickerController() {
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.delegate = self
-            present(imagePicker, animated: true, completion: nil)
-        } else {
-            return
-        }
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        picker.dismiss(animated: true, completion: nil)
-        
-        guard let image = info[.originalImage] as? UIImage else { return }
-        
-        photoImageView.image = image
-        
-    }
-    
-    You'll need to add a row to Info.plist with a key of `Privacy - Photo Library Usage Description` and any string value(usually the description what it's doing in the app)
-    Conform the class to `UIImagePickerControllerDelegate` and `UINavigationControllerDelegate`. Also `import Photos` */
-  
+ 
+   
 
 }

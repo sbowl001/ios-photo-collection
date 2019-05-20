@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Photos
+
 
 class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -48,12 +50,6 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
         
     }
     
-    @IBAction func addPhoto(_ sender: Any) {
-        present(UIImagePickerController(), animated: true, completion: nil)
-//        present(UIImagePickerControllerDelegate(self))
-//         4. The `addImage` action codershould present a `UIImagePickerController` that allows the user to select an image to add to the `Photo` object.
-    }
-    
     @IBAction func savePhoto(_ sender: Any) {
         guard let title = newTitleLabel.text,
             let image = chooseImageView.image,
@@ -66,11 +62,47 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
         }
         navigationController?.popViewController(animated: true)
     }
-   
-   
-//    - **Note:** Make sure you request authorization to access the photo library, and add the "Privacy - Photo Library Usage Description" key-value pair in the info.plist.
-//    - **Note:** You will need to adopt the `UIImagePickerControllerDelegate` and implement the `didFinishPickingMediaWithInfo` method to get the image the user selects, then dismiss the image picker. You will also need to adopt the `UINavigationControllerDelegate`.
+    @IBAction func addPhoto(_ sender: Any) {
+        present(UIImagePickerController(), animated: true, completion: nil)
+        
+        let preservedStatus = PHPhotoLibrary.authorizationStatus()
+        switch preservedStatus {
+        case .authorized:
+            self.presentImagePickerController()
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({ (newStatus) in
+                if newStatus == .authorized {
+                    self.presentImagePickerController()
+                } else {
+                    return
+                }
+            })
+        default:
+            return
+        }
+    }
     
+    func presentImagePickerController(){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.delegate = self
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            return
+        }
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let image = info[.originalImage] as? UIImage else { return }
+        
+        chooseImageView.image = image
+        
+    }
+
 
 
 }
