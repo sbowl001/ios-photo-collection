@@ -63,7 +63,7 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
         navigationController?.popViewController(animated: true)
     }
     @IBAction func addPhoto(_ sender: Any) {
-        present(UIImagePickerController(), animated: true, completion: nil)
+//        present(UIImagePickerController(), animated: true, completion: nil)
         
         let preservedStatus = PHPhotoLibrary.authorizationStatus()
         switch preservedStatus {

@@ -38,8 +38,11 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EZY-gQ-V66">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aDo-9c-A1a">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aDo-9c-A1a">
                                                             <rect key="frame" x="0.0" y="0.0" width="150" height="121.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="121.5" id="r4i-QI-yVA"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozP-Vj-5uz">
                                                             <rect key="frame" x="0.0" y="129.5" width="150" height="20.5"/>
@@ -104,9 +107,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNY-nl-Tqg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oNY-nl-Tqg">
                                 <rect key="frame" x="75" y="85" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="AMA-Vd-q5t"/>
+                                </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J8X-Fq-IU1">
                                 <rect key="frame" x="139" y="254" width="97" height="30"/>
@@ -125,6 +130,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oNY-nl-Tqg" firstAttribute="leading" secondItem="g6X-Df-q5L" secondAttribute="leading" constant="75" id="EFR-eF-9eP"/>
+                            <constraint firstItem="oNY-nl-Tqg" firstAttribute="top" secondItem="g6X-Df-q5L" secondAttribute="top" constant="21" id="sdm-u5-9MG"/>
+                            <constraint firstItem="g6X-Df-q5L" firstAttribute="trailing" secondItem="oNY-nl-Tqg" secondAttribute="trailing" constant="60" id="ymU-SK-LST"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="g6X-Df-q5L"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="8Xm-7R-0Sw">
