@@ -94,15 +94,13 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
         
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        
-        guard let image = info[.originalImage] as? UIImage else { return }
-        
+
+
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         chooseImageView.image = image
-        
+
     }
-
-
-
+  
 }
